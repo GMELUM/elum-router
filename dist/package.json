@@ -1,5 +1,5 @@
 {
-  "name": "@elum/router",
+  "name": "elum-router",
   "version": "0.0.15",
   "description": "Elum Router - Router for vk mini apps on reactjs and solidjs",
   "license": "MIT",
