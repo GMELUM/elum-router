@@ -1,0 +1,25 @@
+{
+  "name": "@elum/router",
+  "version": "0.0.15",
+  "description": "Elum Router - Router for vk mini apps on reactjs and solidjs",
+  "license": "MIT",
+  "author": {
+    "name": "Artur Frank",
+    "url": "https://vk.com/gmelum"
+  },
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:elum-team/router.git"
+  },
+  "keywords": [
+    "state",
+    "manager",
+    "redux",
+    "react",
+    "recoil",
+    "state",
+    "elum",
+    "solidjs"
+  ]
+}
