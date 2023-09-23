@@ -1,11 +1,11 @@
 {
-  "scripts": {
-    "build:react": "rollup --config config/rollup.react.config.ts --configPlugin @rollup/plugin-typescript",
-    "build:solid": "rollup --config config/rollup.solid.config.ts --configPlugin @rollup/plugin-typescript",
-    "build": "npm run build:react && npm run build:solid",
-    "test": "jest --config jest.config.ts",
-    "release": "git subtree push --prefix dist https://github.com/elum-team/router release"
-  },
+    "scripts": {
+      "build:react": "rollup --config config/rollup.react.config.ts --configPlugin @rollup/plugin-typescript",
+      "build:solid": "rollup --config config/rollup.solid.config.ts --configPlugin @rollup/plugin-typescript",
+      "build": "npm run build:react && npm run build:solid",
+      "test": "jest --config jest.config.ts",
+      "release": "git subtree push --prefix dist https://github.com/GMELUM/elum-router release"
+    },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.3",
     "@rollup/plugin-typescript": "^11.1.3",
