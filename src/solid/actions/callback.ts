@@ -3,11 +3,11 @@ import { ACTIVE_CALLBACK } from "../atoms"
 
 const callback = <T = any>(data: T) => {
   const func = getter(ACTIVE_CALLBACK);
-  if (!func || typeof func !== "function") {
+  if (!func?.c || typeof func?.c !== "function") {
     console.warn("There is no function for callback")
     return;
   }
-  func(data);
+  func.c(data);
 }
 
 export default callback;

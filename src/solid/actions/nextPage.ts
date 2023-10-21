@@ -70,7 +70,7 @@ const nextPage = <T = any>(options: Partial<NextPageOptions>, callback?: (data: 
   setter(ACTIVE_MODAL, sector.modal);
   setter(ACTIVE_POPOUT, sector.popout);
   setter(ACTIVE_PARAMS, sector.params);
-  setter(ACTIVE_CALLBACK, callback);
+  setter(ACTIVE_CALLBACK, { c: callback });
 
   if (options.clear && currentView !== currentView) {
     context[currentApp].__snapshot = [defaultSector];
