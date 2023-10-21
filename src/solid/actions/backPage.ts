@@ -5,6 +5,7 @@ import indexStay from "../../libs/indexStay";
 
 import {
   ACTIVE_APP,
+  ACTIVE_CALLBACK,
   ACTIVE_MODAL,
   ACTIVE_PANEL,
   ACTIVE_PARAMS,

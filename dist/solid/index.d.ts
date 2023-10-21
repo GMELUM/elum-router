@@ -22,7 +22,7 @@ interface NextPageOptions extends Sector {
     clear: boolean;
 }
 
-declare const nextPage: <T = any>(options: Partial<NextPageOptions>, callback?: ((data: T) => void) | undefined) => void;
+declare const nextPage: <T = any>(options: Partial<NextPageOptions>, callback?: ((data: any) => void) | undefined) => void;
 
 declare const backPage: (opt?: Partial<{
     ignoreFreeze: boolean;

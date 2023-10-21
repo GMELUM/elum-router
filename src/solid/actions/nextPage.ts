@@ -20,7 +20,7 @@ import {
 
 const parts: Array<keyof Partial<NextPageOptions>> = ["popout", "modal", "panel"];
 
-const nextPage = <T = any>(options: Partial<NextPageOptions>, callback?: (data: T) => void) => {
+const nextPage = <T = any>(options: Partial<NextPageOptions>, callback?: (data: T | any) => void) => {
 
   if (window.location.protocol !== "file:") {
     window.history.pushState(null, "");
@@ -49,8 +49,7 @@ const nextPage = <T = any>(options: Partial<NextPageOptions>, callback?: (data: 
     popout: options.popout || activeSector.popout,
     stay: options.stay || defaultSector.stay,
     freeze: options.freeze || defaultSector.freeze,
-    params: options.params || activeSector.params,
-    callback: callback || undefined
+    params: options.params || activeSector.params
   };
 
   for (let key of parts) {
@@ -71,7 +70,7 @@ const nextPage = <T = any>(options: Partial<NextPageOptions>, callback?: (data: 
   setter(ACTIVE_MODAL, sector.modal);
   setter(ACTIVE_POPOUT, sector.popout);
   setter(ACTIVE_PARAMS, sector.params);
-  setter(ACTIVE_CALLBACK, sector.callback);
+  setter(ACTIVE_CALLBACK, callback);
 
   if (options.clear && currentView !== currentView) {
     context[currentApp].__snapshot = [defaultSector];
