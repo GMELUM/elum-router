@@ -8,6 +8,7 @@ import {
 
 import {
   ACTIVE_APP,
+  ACTIVE_CALLBACK,
   ACTIVE_MODAL,
   ACTIVE_PANEL,
   ACTIVE_PARAMS,
@@ -19,7 +20,7 @@ import {
 
 const parts: Array<keyof Partial<NextPageOptions>> = ["popout", "modal", "panel"];
 
-const nextPage = (options: Partial<NextPageOptions>) => {
+const nextPage = <T = any>(options: Partial<NextPageOptions>, callback?: (data: T) => void) => {
 
   if (window.location.protocol !== "file:") {
     window.history.pushState(null, "");
@@ -48,7 +49,8 @@ const nextPage = (options: Partial<NextPageOptions>) => {
     popout: options.popout || activeSector.popout,
     stay: options.stay || defaultSector.stay,
     freeze: options.freeze || defaultSector.freeze,
-    params: options.params || activeSector.params
+    params: options.params || activeSector.params,
+    callback: callback || undefined
   };
 
   for (let key of parts) {
@@ -69,6 +71,7 @@ const nextPage = (options: Partial<NextPageOptions>) => {
   setter(ACTIVE_MODAL, sector.modal);
   setter(ACTIVE_POPOUT, sector.popout);
   setter(ACTIVE_PARAMS, sector.params);
+  setter(ACTIVE_CALLBACK, sector.callback);
 
   if (options.clear && currentView !== currentView) {
     context[currentApp].__snapshot = [defaultSector];

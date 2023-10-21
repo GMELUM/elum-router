@@ -1,4 +1,4 @@
-type Sector = {
+type Sector<T = any> = {
   panel: string;
   modal?: string;
   popout?: string;

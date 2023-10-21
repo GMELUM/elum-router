@@ -26,6 +26,7 @@ const ACTIVE_MODAL = atom<string>({ key: "router_active_modal" });
 const ACTIVE_POPOUT = atom<string>({ key: "router_active_popout" });
 const ACTIVE_NOTIFY = atom<NOTIFY>({ key: "router_active_notify" });
 const ACTIVE_PARAMS = atom<Record<string, ParamsData>>({ key: "router_active_params" });
+const ACTIVE_CALLBACK = atom<(data: any) => void>({ key: "router_active_callback" });
 
 export {
 
@@ -39,5 +40,6 @@ export {
   ACTIVE_POPOUT,
   ACTIVE_NOTIFY,
   ACTIVE_PARAMS,
-
+  ACTIVE_CALLBACK
+  
 }

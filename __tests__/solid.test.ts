@@ -1,5 +1,5 @@
 import { getter } from "elum-state/solid";
-import { backPage, nextPage, swapApp } from "../src/solid";
+import { backPage, callback, nextPage, swapApp } from "../src/solid";
 
 import {
   ACTIVE_APP,
@@ -219,6 +219,27 @@ test.each([
         popout: undefined,
         params: {}
       })
+  }],
+
+  ["set_panel", () => {
+    expect(next({ panel: "settings" }))
+      .toMatchObject({
+        app: "app",
+        view: "home",
+        panel: "settings",
+        modal: undefined,
+        popout: undefined,
+        params: {}
+      })
+  }],
+
+  ["callback", () => {
+    let color: string = "";
+    next<string>({ modal: "picker" }, (value: string) => {
+      color = value;
+      expect(color).toBe("#c48e12");
+    });
+    callback("#c48e12");
   }],
 
   ["notify", () => {

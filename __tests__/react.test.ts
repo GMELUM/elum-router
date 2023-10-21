@@ -1,5 +1,5 @@
 import { getter } from "elum-state/react";
-import { backPage, nextPage, swapApp } from "../src/react";
+import { backPage, callback, nextPage, swapApp } from "../src/react";
 
 import {
   ACTIVE_APP,
@@ -219,6 +219,15 @@ test.each([
         popout: undefined,
         params: {}
       })
+  }],
+
+  ["callback", () => {
+    let color: string = "";
+    next<string>({ modal: "picker" }, (value: string) => {
+      color = value;
+      expect(color).toBe("#c48e12");
+    });
+    callback("#c48e12");
   }],
 
   ["notify", () => {

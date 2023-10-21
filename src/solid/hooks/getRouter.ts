@@ -14,9 +14,9 @@ const listAtom = {
   popout: ACTIVE_POPOUT
 }
 
-const useRouter = (atom: keyof typeof listAtom): Accessor<string> => {
+const getRouter = (atom: keyof typeof listAtom): Accessor<string> => {
   const [value] = globalSignal(listAtom[atom]);
   return value
 };
 
-export default useRouter;
+export default getRouter;

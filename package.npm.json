@@ -1,6 +1,6 @@
 {
   "name": "elum-router",
-  "version": "0.0.15",
+  "version": "0.0.18",
   "description": "Elum Router - Router for vk mini apps on reactjs and solidjs",
   "license": "MIT",
   "author": {
@@ -10,7 +10,7 @@
   "contributors": [],
   "repository": {
     "type": "git",
-    "url": "git@github.com:elum-team/router.git"
+    "url": "git@github.com:GMELUM/elum-router.git"
   },
   "keywords": [
     "state",

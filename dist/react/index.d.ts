@@ -1,7 +1,7 @@
 import * as elum_state_react from 'elum-state/react';
 import { FC, HTMLAttributes } from 'react';
 
-type Sector = {
+type Sector<T = any> = {
     panel: string;
     modal?: string;
     popout?: string;
@@ -21,7 +21,7 @@ interface NextPageOptions extends Sector {
     clear: boolean;
 }
 
-declare const nextPage: (options: Partial<NextPageOptions>) => void;
+declare const nextPage: <T = any>(options: Partial<NextPageOptions>, callback?: ((data: T) => void) | undefined) => void;
 
 declare const backPage: (opt?: Partial<{
     ignoreFreeze: boolean;
@@ -29,6 +29,8 @@ declare const backPage: (opt?: Partial<{
 }>) => void;
 
 declare const swapApp: (app: string, options: Partial<NextPageOptions>) => void;
+
+declare const callback: <T = any>(data: T) => void;
 
 declare function showNotify(type: string, time: number, params: Record<string, any>): Promise<Omit<NOTIFY, "callback">>;
 declare function showNotify(type: string, time: number, params: Record<string, any>, callback: (value: Omit<NOTIFY, "callback">) => void): void;
@@ -66,4 +68,4 @@ declare const ACTIVE_POPOUT: elum_state_react.GlobalAtom<string>;
 declare const ACTIVE_NOTIFY: elum_state_react.GlobalAtom<NOTIFY>;
 declare const ACTIVE_PARAMS: elum_state_react.GlobalAtom<Record<string, ParamsData>>;
 
-export { ACTIVE_APP, ACTIVE_MODAL, ACTIVE_NOTIFY, ACTIVE_PANEL, ACTIVE_PARAMS, ACTIVE_POPOUT, ACTIVE_VIEW, Router, backPage, hideNotify, nextPage, showNotify, swapApp, useNotify, useParams, useRouter };
+export { ACTIVE_APP, ACTIVE_MODAL, ACTIVE_NOTIFY, ACTIVE_PANEL, ACTIVE_PARAMS, ACTIVE_POPOUT, ACTIVE_VIEW, Router, backPage, callback, hideNotify, nextPage, showNotify, swapApp, useNotify, useParams, useRouter };
